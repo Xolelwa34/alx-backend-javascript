@@ -1,0 +1,20 @@
+{
+  "name": "alx-backend-javascript",
+  "version": "1.0.0",
+  "description": "Project for learning TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
+
