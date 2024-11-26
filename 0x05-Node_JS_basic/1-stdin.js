@@ -11,5 +11,5 @@ readline.question('Welcome to Holberton School, what is your name? ', (name) => 
 });
 
 process.on('exit', () => {
-  console.log('\nThis important software is now closing');
+  process.exit()
 });
