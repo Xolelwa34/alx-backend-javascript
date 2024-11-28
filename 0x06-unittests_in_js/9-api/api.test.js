@@ -1,17 +1,17 @@
-describe('Cart page', () => {
-  it('returns the correct message for valid id', (done) => {
-    request('http://localhost:7865/cart/12', (err, res, body) => {
-      expect(res.statusCode).to.equal(200);
-      expect(body).to.equal('Payment methods for cart 12');
-      done();
-    });
+const request = require('supertest');
+const app = require('./api');
+
+describe('GET /cart/:id', () => {
+  test('Valid ID should return 200 and the correct response', async () => {
+    const response = await request(app).get('/cart/12');
+    expect(response.status).toBe(200);
+    expect(response.text).toBe('Payment methods for cart 12');
   });
 
-  it('returns 404 for invalid id', (done) => {
-    request('http://localhost:7865/cart/hello', (err, res) => {
-      expect(res.statusCode).to.equal(404);
-      done();
-    });
+  test('Invalid ID should return 404', async () => {
+    const response = await request(app).get('/cart/hello');
+    expect(response.status).toBe(404);
+    expect(response.text).toContain('Cannot GET /cart/hello');
   });
 });
 
